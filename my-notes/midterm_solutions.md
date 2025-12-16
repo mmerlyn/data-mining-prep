@@ -5,6 +5,19 @@
 
 ## Question 1: Which systems are NOT data mining?
 
+> **Question:** Please read the following statements each describing a computer system, and identify which system(s) is (are) not addressed by data mining techniques. Put 'Yes' or 'No' after each activity's number in your answers (e.g., a: No).
+>
+> (a) A system that can group the customers of a company according to their genders
+> (b) A system that can intelligently recommend a new product to existing customers who are likely to buy it
+> (c) A system that can sort a student database based on student identification numbers
+> (d) A system that can calculate the total sales of a company given the sale records
+> (e) A system that can extract the frequencies of a sound wave
+> (f) A system that can predict the future stock price of a company using its historical records
+> (g) A system that can monitor the heart rate of a patient for abnormalities
+> (h) A system that can predict seismic waves for earthquake activities
+> (i) A system that can identify fraud transactions which are substantially different from other transactions
+
+### Answer:
 Answer "Yes" if NOT data mining, "No" if it IS data mining:
 
 | System | Answer | Reasoning |
@@ -23,6 +36,9 @@ Answer "Yes" if NOT data mining, "No" if it IS data mining:
 
 ## Question 2: Box Plot Information
 
+> **Question:** The following figure shows the box-plot of the Iris flower dataset, where each flower includes 4 attributes: sepal length, sepal width, petal length, petal width. Describe how a box plot can give information about each feature.
+
+### Answer:
 A box plot provides:
 
 - **Median**: The line inside the box (50th percentile)
@@ -36,6 +52,36 @@ A box plot provides:
 ---
 
 ## Question 3: Decision Tree Predictions
+
+> **Question:** Suppose you have trained a decision tree to predict if a user has cheated on tax claim. Please apply the tree model to the following test samples and fill in the predictions (Y or N) in the last column.
+
+### Answer:
+
+**Decision Tree Diagram:**
+```
+                    ┌─────────┐
+                    │ Refund  │
+                    └────┬────┘
+              ┌──────────┴──────────┐
+            Yes                     No
+              │                      │
+           ┌──┴──┐              ┌────┴────┐
+           │  N  │              │  MarSt  │
+           └─────┘              └────┬────┘
+                          ┌──────────┴──────────┐
+                    Single,                  Married
+                    Divorced                    │
+                         │                   ┌──┴──┐
+                    ┌────┴────┐              │  N  │
+                    │ TaxInc  │              └─────┘
+                    └────┬────┘
+              ┌──────────┴──────────┐
+            <80K                  >80K
+              │                      │
+           ┌──┴──┐              ┌────┴────┐
+           │  N  │              │   YES   │
+           └─────┘              └─────────┘
+```
 
 Following the tree: `Refund → (Yes→N) or (No→MarSt→(Married→N) or (Single/Divorced→TaxInc→(<80K→N, >80K→YES)))`
 
@@ -53,7 +99,11 @@ Following the tree: `Refund → (Yes→N) or (No→MarSt→(Married→N) or (Sin
 
 ## Question 4: Confusion Matrix & Precision/Recall
 
-### Confusion Matrix:
+> **Question:** Based on your predictions in the last question, please calculate the confusion matrix, and per-class precision and recall.
+
+### Answer:
+
+**Confusion Matrix:**
 
 |  | Predicted Y | Predicted N |
 |--|-------------|-------------|
@@ -71,6 +121,18 @@ Following the tree: `Refund → (Yes→N) or (No→MarSt→(Married→N) or (Sin
 
 ## Question 5: Gini Index for Overall Collection
 
+> **Question:** Consider the training samples shown in the table for a binary classification problem (20 customers with Gender, Car Type, Shirt Size attributes, and Class C0/C1). Compute the Gini Index (i.e., GINI) for the overall collection of training examples.
+
+**Training Data Summary:**
+| Customer ID | Gender | Car Type | Shirt Size | Class |
+|-------------|--------|----------|------------|-------|
+| 1-6 | M | Family/Sports | Various | C0 |
+| 7-9 | F | Sports | Small/Medium | C0 |
+| 10 | M | Luxury | Large | C0 |
+| 11-13 | M | Family | Various | C1 |
+| 14-20 | F | Luxury | Various | C1 |
+
+### Answer:
 Total samples: 20 (C0: 10, C1: 10)
 
 **GINI = 1 - Σ(pᵢ)²**
@@ -87,7 +149,19 @@ Total samples: 20 (C0: 10, C1: 10)
 
 ## Question 6: GINI Split Calculations
 
-### (a) Split by Gender:
+> **Question:** When a set of samples is split into k partitions (children), the quality of this split is computed as:
+>
+> **GINI_split = Σ (nᵢ/n) × GINI(i)**
+>
+> where nᵢ is the number of samples at children i, n is the total number of samples.
+>
+> Please calculate the qualities of the following two ways of splitting:
+> - (a) Split by Gender: M vs F
+> - (b) Split by Car Type: Luxury vs {Family, Sports}
+
+### Answer:
+
+**(a) Split by Gender:**
 
 **M**: 10 samples (C0: 7, C1: 3)
 ```
@@ -122,7 +196,15 @@ GINI(F+S) = 1 - (9/12)² - (3/12)² = 1 - 0.5625 - 0.0625 = 0.375
 
 ## Question 7: K-NN Classification
 
-### Distances from x=5.0 (sorted):
+> **Question:** Consider the one-dimensional data set shown in the following table. Classify the data point x = 5.0 according to its 1-, 3-, and 5- nearest neighbors (using majority vote). Please briefly discuss the consequences of using small or large K for K-NN (K-nearest neighbor method).
+>
+> | x | 0.5 | 3.0 | 4.2 | 4.6 | 4.9 | 5.2 | 5.3 | 5.5 | 7.0 | 9.5 |
+> |---|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+> | y | - | - | + | + | + | - | - | + | - | - |
+
+### Answer:
+
+**Distances from x=5.0 (sorted):**
 
 | x | Distance | y |
 |---|----------|---|
@@ -161,6 +243,12 @@ GINI(F+S) = 1 - (9/12)² - (3/12)² = 1 - 0.5625 - 0.0625 = 0.375
 ---
 
 ## Question 8: Naïve Bayes
+
+> **Question:** Consider the data set shown in the following table. We will apply the Naïve Bayes method to predict the class of an unseen record. Please accomplish the following two steps:
+>
+> (a) Estimate the conditional probabilities: P(A|+), P(B|+), P(C|+), P(A|-), P(B|-), and P(C|-).
+>
+> (b) Use the estimate of conditional probabilities to predict the class label for a test sample (A=0, B=1, C=0) using the Naïve Bayes method.
 
 ### (a) Conditional Probabilities:
 
